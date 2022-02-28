@@ -110,7 +110,7 @@ The modified query will return all items where either the category is Gifts, or 
 
 ---
 **References:**
-[SQL injection W3school](https://www.w3schools.com/sql/sql_injection.asp)
-[SQL injection Ports Wigger](https://portswigger.net/web-security/sql-injection)
-[Bad Habits and Best Practices](https://sqlblog.org/bad-habits)
-[SQL Server Worst Practices](https://www.mssqltips.com/sqlservertip/1707/sql-server-worst-practices/)
+- [SQL injection W3school](https://www.w3schools.com/sql/sql_injection.asp)
+- [SQL injection Ports Wigger](https://portswigger.net/web-security/sql-injection)
+- [Bad Habits and Best Practices](https://sqlblog.org/bad-habits)
+- [SQL Server Worst Practices](https://www.mssqltips.com/sqlservertip/1707/sql-server-worst-practices/)
