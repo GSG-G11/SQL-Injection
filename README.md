@@ -19,16 +19,17 @@ The only sure way to prevent SQL Injection attacks is input validation and param
  **some points to prevent the SQL injection:**
 
 1- Limiting the use of special characters.
-    ![](https://i.imgur.com/hj0queM.png)
+
+![](https://i.imgur.com/hj0queM.png)
+
 2- Providing minimal strict access to the minimum necessary privileges and nothing more.
 
 3- Controlling activity by validating user inputs through the creation of an allow-list.
 
-    
 4- Use of prepared statements with parameterized queries because most instances of SQL injection can be prevented by using parameterized queries, Never concatenate user input that is not validated because String concatenation is the primary point of entry for script injection.
 
 5- Never build Transact-SQL statements directly from user input.
-**example => ' OR '1'='1**
+**example => `' OR '1'='1`**
 
 ![](https://i.imgur.com/0mDn22K.png)
 
@@ -42,7 +43,7 @@ The only sure way to prevent SQL Injection attacks is input validation and param
 2- To increase Performance of the database.
 
 * Example:
-![](https://i.imgur.com/tgRe3jl.png)
+> ![](https://i.imgur.com/tgRe3jl.png)
 
 1- Non-Parameterized query
 ```js
@@ -63,22 +64,22 @@ return connection.query({
     });
 ```
     
-> The variables name and location are populated before being used in the INSERT statement to create a record in database table. 
-In the first code Parameters values are passed immediately after the INSERT statement
-In the second code The $1,$2 in the VALUES clause of the INSERT statement are placeholders for the variables at run-time.
+The variables `name` and `location` are populated before being used in the INSERT statement to create a record in database table. 
+In the first code, Parameters values are passed immediately after the INSERT statement.
+In the second code, The $1,$2 in the VALUES clause of the INSERT statement are placeholders for the variables at run-time.
 
 ---
 
 ### 5- Bad practices in `SQL` and some sampels codes:
 #### Bad Practices:
 
-1- Developing and deploying code susceptible to SQL Injection.
-2- No testing.
-3- No security.
-4- No maintenance.
-5- No service packs.
-5- Unnecessary coding techniques.
-6- No code reviews
+* Developing and deploying code susceptible to SQL Injection.
+* No testing.
+* No security.
+* No maintenance.
+* No service packs.
+* Unnecessary coding techniques.
+* No code reviews.
 
 #### Sample Code:
 
@@ -106,7 +107,7 @@ This results in the SQL query:
 ```sql
 SELECT * FROM products WHERE category = 'Gifts'--' AND released = 1
 ```
-The modified query will return all items where either the category is Gifts, or 1 is equal to 1. Since 1=1 is always true, the query will return all items.
+The key thing here is that the double-dash sequence -- is a comment indicator in SQL, and means that the rest of the query is interpreted as a comment. This effectively removes the remainder of the query, so it no longer includes AND released = 1. This means that all products are displayed, including unreleased products.
 
 ---
 **References:**
