@@ -15,21 +15,32 @@ SQL injection is a web security vulnerability that allows an attacker to interfe
 
 ### 3- How would you prevent script injections?
 The only sure way to prevent SQL Injection attacks is input validation and parametrized queries including prepared statements. The application code should never use the input directly. The developer must sanitize all input, not only web form inputs such as login forms. They must remove potential malicious code elements such as single quotes. It is also a good idea to turn off the visibility of database errors on your production sites. Database errors can be used with SQL Injection to gain information about your database.
+![](https://i.imgur.com/QzHjaRD.png)
+
+
 
  **some points to prevent the SQL injection:**
 
 1- Limiting the use of special characters.
 
 ![](https://i.imgur.com/hj0queM.png)
+**examples:**
+```
+' UNION SELECT username, password FROM users--
+```
+```
+SELECT * FROM users WHERE username = 'administrator'--' AND password = ''
+```
 
-2- Providing minimal strict access to the minimum necessary privileges and nothing more.
+2- Controlling activity by validating user inputs through the creation of an allow-list.
 
-3- Controlling activity by validating user inputs through the creation of an allow-list.
+3- Use of prepared statements with parameterized queries because most instances of SQL injection can be prevented by using parameterized queries, Never concatenate user input that is not validated because String concatenation is the primary point of entry for script injection.
 
-4- Use of prepared statements with parameterized queries because most instances of SQL injection can be prevented by using parameterized queries, Never concatenate user input that is not validated because String concatenation is the primary point of entry for script injection.
-
-5- Never build Transact-SQL statements directly from user input.
-**example => `' OR '1'='1`**
+4- Never build Transact-SQL statements directly from user input.
+**example => ``' OR '1'='1``**
+`SELECT * FROM users WHERE username = 'user input';`
+***using `' OR '1'='1` input:***
+`SELECT * FROM users WHERE username = '' OR '1'='1'; `
 
 ![](https://i.imgur.com/0mDn22K.png)
 
